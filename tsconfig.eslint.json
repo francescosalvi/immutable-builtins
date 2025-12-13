@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "exclude": [],
+  "include": [
+    "jest.config.ts",
+    "jest.globalSetup.ts",
+    "eslint.config.mjs",
+  ],
+}
