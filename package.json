@@ -22,7 +22,9 @@
   "license": "MIT",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "./dist/esm/index.d.ts",
   "module": "./dist/esm/index.js",
   "main": "./dist/cjs/index.js",
@@ -47,8 +49,11 @@
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "postbuild:esm": "yarn exec tsc-esm-fix --target='target/es6'",
     "postbuild:cjs": "echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
+    "lint": "eslint .",
     "test": "jest",
-    "lint": "eslint ."
+    "ci": "yarn build && yarn lint && yarn test",
+    "preversion": "yarn install --frozen-lockfile && yarn ci",
+    "version": "node scripts/sync-jsr-version.js && git add jsr.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

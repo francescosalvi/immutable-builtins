@@ -31,6 +31,7 @@ export default defineConfig([
     },
   },
   globalIgnores([
+    "scripts/",
     "dist/",
     "local/",
   ]),

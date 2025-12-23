@@ -1,17 +1,16 @@
-name: CI
+name: Publish
 
 on:
   push:
-    branches:
-      - main
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    tags:
+      - 'v*'
 
 jobs:
-  ci:
+  publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -22,3 +21,9 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn ci
+
+      - run: npm publish
+      - run: npx jsr publish
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
