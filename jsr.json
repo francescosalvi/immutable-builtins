@@ -1,0 +1,16 @@
+{
+  "name": "@francescosalvi/immutable-builtins",
+  "version": "1.0.0",
+  "license": "MIT",
+  "exports": "./dist/esm/index.js",
+  "publish": {
+    "include": [
+      "dist/esm/**/*.js",
+      "dist/esm/**/*.d.ts",
+      "README.md",
+      "LICENSE",
+      "package.json",
+      "jsr.json"
+    ]
+  }
+}
