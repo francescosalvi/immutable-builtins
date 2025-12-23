@@ -1,6 +1,6 @@
 {
   "name": "immutable-builtins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dependency-free collection of immutable replacements for JavaScript builtins",
   "keywords": [
     "immutable",
